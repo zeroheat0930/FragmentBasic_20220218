@@ -1,39 +1,38 @@
 package com.zeroheat.fragmentbasic_20220218.fragments
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.zeroheat.fragmentbasic_20220218.R
-import kotlinx.android.synthetic.main.fragment_my_first.*
+import kotlinx.android.synthetic.main.fragment_second.*
 
-class MyFirstFragment : Fragment() {
+class SecondFragment : Fragment() {
+
+//    1. 어떤 xml? - onCreateView
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_my_first, container, false)
+        return inflater.inflate(R.layout.fragment_second, container, false)
     }
 
+//    2. 어떤 동작? - onActivityCreated
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
-//      이 프래그먼트를 들고 있는 액티비티가 완전히 만들어진 시점.
-//        이벤트 처리 / 데이터 보여주기 등등 동작.
+        btnToast.setOnClickListener {
 
-        btnLog.setOnClickListener {
-
-            Log.d("첫프래그먼트", "프래그먼트의 버튼으로 로그 찍기")
+            Toast.makeText(requireContext(), "프래그먼트에서 띄우는 토스트", Toast.LENGTH_SHORT).show()
 
         }
+
     }
-
-
 
 
 }
